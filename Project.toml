@@ -1,0 +1,13 @@
+name = "InvariantSets"
+uuid = "0a1268e7-2270-4ee8-9901-5a5b516c7ae9"
+authors = ["Ueli Wechsler"]
+version = "0.1.0"
+
+[compat]
+julia = "1"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
