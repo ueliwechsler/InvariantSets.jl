@@ -6,10 +6,10 @@
 [![Codecov](https://codecov.io/gh/ueliwechsler/InvariantSets.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/ueliwechsler/InvariantSets.jl)
 [![Coveralls](https://coveralls.io/repos/github/ueliwechsler/InvariantSets.jl/badge.svg?branch=master)](https://coveralls.io/github/ueliwechsler/InvariantSets.jl?branch=master)
 
-`InvariantSets.jl` brings some of the set computational functionalities provided by `MATALB` plugin  [Multi-Parametric Toolbox 3 (MPT)](https://www.mpt3.org/) to the `Julia Programming Language` and extends it with lazy set computation features. This package enables the user to compute, approximate and display invariant sets using a similar notation as in MPT but without needing a costly `MATLAB` license.
+`InvariantSets.jl` brings some of the set computational functionalities provided by `MATLAB` plugin  [Multi-Parametric Toolbox 3 (MPT)](https://www.mpt3.org/) to the `Julia Programming Language` and extends it with lazy set computation features. This package enables the user to compute, approximate and display invariant sets using a similar notation as in MPT but without needing a costly `MATLAB` license.
 
-`InvariantSets.jl` is a wrapper to the library [`LazySets.jl`](https://github.com/JuliaReach/LazySets.jl) which provides "lazy" and concrete set computation (with `Polhedry.jl` and `CDDLib.jl` as polyhedral computation backend).
-As a result, if needed, the full computational power of `lazySets.jl` can be leveraged if needed.
+`InvariantSets.jl` is a wrapper to the library [`LazySets.jl`](https://github.com/JuliaReach/LazySets.jl) which provides "lazy" and concrete set computation (with `Polyhedra.jl` and `CDDLib.jl` as polyhedral computation backend).
+As a result, if needed, the full computational power of `LazySets.jl` can be leveraged if needed.
 
 ## Installation
 
