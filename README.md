@@ -24,8 +24,8 @@ Set Type | Constructor | Description
 `Ballp`/ `Ball1` / `Ball2`/ `BallInf` | `Ball1(center, radius)` |
 `Ellipsoid` | `Ellipsoid(center, shape_matrix)` |
 `Zonotope` | `Zonotope(center, generator)`
-`Hyperrectangle` | `Hyperrectangle(center, radius)` |
- | `Hyperrectangle(low=min, high=max)` |
+`Hyperrectangle` | `Hyperrectangle(center, radius)` | 
+` `  | `Hyperrectangle(low=min, high=max)` |
 `Hyperplane` / `HalfSpace` | `HalfSpace(a,b)` |
 `Singleton` | `Singleton(element)` |
 `SingleEntryVector` | `SingleEntryVector(dim, idx, value)` |
