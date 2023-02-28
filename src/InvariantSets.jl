@@ -55,8 +55,8 @@ include(raw"concrete_operator.jl")
 
 export  ρ_exact, σ_exact, ρ_matrix,
         canonical_length, marginal_enlargment
-include(raw"helper\lazy_sets.jl")
-include(raw"helper\control_systems.jl")
+include(raw"helper/lazy_sets.jl")
+include(raw"helper/control_systems.jl")
 
 abstract type AbstractAlgorithm end
 export preset,
