@@ -62,8 +62,8 @@ jobs:
         run: |
           julia --project=docs -e '
             using Documenter: doctest
-            using SeqLoggers
-            doctest(SeqLoggers)'
+            using InvariantSets
+            doctest(InvariantSets)'
       - name: Build and deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # For authentication with GitHub Actions token
