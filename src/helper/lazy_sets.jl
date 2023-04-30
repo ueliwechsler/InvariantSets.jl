@@ -1,4 +1,6 @@
 using LinearAlgebra: norm, I, UniformScaling
+using LazySets
+using LazySets.Arrays
 
 """
     scale(a::T, P::LazySet) where {T<:Real}
@@ -16,7 +18,7 @@ using LinearAlgebra: norm, I, UniformScaling
  Enables to apply concrete multiplication operator `*ᶜ` to a scalar and a set (in addition to matrix and set).
 """
 LazySets.scale(α::T, P::LazySet) where {T<:Real} =
-    linear_map(α*Matrix{T}(I, dim(P), dim(P)), P)
+    linear_map(α * Matrix{T}(I, dim(P), dim(P)), P)
 
 """
     linear_map(U::UniformScaling, P::LazySet)
@@ -46,7 +48,7 @@ LazySets.linear_map(U::UniformScaling, P::LazySet) =
  ### Output
  Support value for lazy set `P` in the direction `d`.
 """
-ρ_exact(d::AbstractVector, P::LazySet) =  ρ(normalize(d), P) * norm(d)
+ρ_exact(d::AbstractVector, P::LazySet) = ρ(normalize(d), P) * norm(d)
 
 """
     σ_exact(d::AbstractVector, P::LazySet)
@@ -60,7 +62,7 @@ LazySets.linear_map(U::UniformScaling, P::LazySet) =
  ### Output
  Support vector for lazy set `P` in the direction `d`.
 """
-σ_exact(d::AbstractVector, P::LazySet) =  σ(normalize(d), P)
+σ_exact(d::AbstractVector, P::LazySet) = σ(normalize(d), P)
 
 """
     ρ_matrix(M::AbstractArray, P::LazySet)
@@ -77,7 +79,7 @@ Vector of support values for lazy set `P` in the direction of each row of `M`.
 function ρ_matrix(M::AbstractArray, P::LazySet)
     num_constr = size(M, 1)
     res = zeros(num_constr)
-    for i=1:num_constr
+    for i = 1:num_constr
         res[i] = ρ_exact(view(M, i, :), P)
     end
     return res
@@ -103,7 +105,7 @@ function canonical_length(X::LazySet{N}) where {N<:Real}
     x = Matrix{N}(undef, dims, 2)
     for j = 1:dims
         ej = SingleEntryVector(j, dims, one(N))
-        x[j,:] = [-ρ_exact(-ej, X), ρ_exact(ej, X)]
+        x[j, :] = [-ρ_exact(-ej, X), ρ_exact(ej, X)]
     end
     return x
 end
@@ -125,6 +127,6 @@ end
 """
 function marginal_enlargment(P::LazySet, ε=LazySets._TOL_F64.rtol)
     F, g = tosimplehrep(P)
-    g .+= ε/norm(g)
+    g .+= ε / norm(g)
     return HPolytope(F, g)
 end

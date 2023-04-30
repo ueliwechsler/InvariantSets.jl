@@ -1,26 +1,24 @@
-using Revise
-using MathematicalSystems
-using InvariantSets
 using Test
 
+using MathematicalSystems
+using InvariantSets
+
 A = [0.9 0.5; 0 0.9]
-B = [1., 0]
-D = I(2)
-X = BallInf(zeros(2), 10.)
-U = BallInf(zeros(1), 10.)
+B = [1.0, 0]
+D = float.(I(2))
+X = BallInf(zeros(2), 10.0)
+U = BallInf(zeros(1), 10.0)
 W = BallInf(zeros(2), 0.5)
 
 K = [0.01 0.01]
 
-autSys = @system x⁺ = A*x  x∈X
-ctrlSys = @system x⁺ = A*x + B*u x∈X u∈U
-noisyCtrlSys = @system x⁺ = A*x + B*u + D*w x∈X u∈U w∈W
+autSys = @system x⁺ = A * x x ∈ X
+ctrlSys = @system x⁺ = A * x + B * u x ∈ X u ∈ U
+noisyCtrlSys = @system x⁺ = A * x + B * u + D * w x ∈ X u ∈ U w ∈ W
 
 
 Xfeas = state_constraints(ctrlSys, K)
 
-using Polyhedra
-using CDDLib
 preSet = preset(autSys, X)
 preSet = preset(ctrlSys, X)
 feasible_set(ctrlSys, X, 1)
